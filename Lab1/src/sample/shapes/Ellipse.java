@@ -53,6 +53,11 @@ public class Ellipse extends Shape {
             y2 = temp;
         }
 
-        gc.strokeOval(first.X, first.Y, second.X - first.X, second.Y - first.Y);
+        gc.strokeOval(x1, y1, x2 - x1, y2 - y1);
+    }
+
+    @Override
+    public String toString() {
+        return "[" + first.toString() + ", " + second.toString() + "]";
     }
 }

@@ -40,4 +40,9 @@ public class Square extends Shape {
         double length = Math.max(Math.abs(second.X - first.X), Math.abs(second.Y - second.X));
         gc.strokeRect(first.X, first.Y, length, length);
     }
+
+    @Override
+    public String toString() {
+        return "[" + first.toString() + ", " + second.toString() + "]";
+    }
 }

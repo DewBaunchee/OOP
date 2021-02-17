@@ -39,4 +39,9 @@ public class Line extends Shape {
     public void draw(GraphicsContext gc) {
         gc.strokeLine(first.X, first.Y, second.X, second.Y);
     }
+
+    @Override
+    public String toString() {
+        return "[" + first.toString() + ", " + second.toString() + "]";
+    }
 }

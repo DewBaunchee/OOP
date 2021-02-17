@@ -43,4 +43,9 @@ public class Circle extends Shape {
 
         gc.strokeOval(first.X, first.X, diameter, diameter);
     }
+
+    @Override
+    public String toString() {
+        return "[" + first.toString() + ", " + second.toString() + "]";
+    }
 }

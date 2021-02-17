@@ -49,4 +49,9 @@ public class Rhombus extends Shape {
         gc.strokeLine(second.X, second.Y - yLength / 2,
                 first.X + xLength / 2, first.Y);
     }
+
+    @Override
+    public String toString() {
+        return "[" + first.toString() + ", " + second.toString() + "]";
+    }
 }

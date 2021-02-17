@@ -39,4 +39,9 @@ public class Rectangle extends Shape {
     public void draw(GraphicsContext gc) {
         gc.strokeRect(first.X, first.Y, Math.abs(second.X - first.X), Math.abs(second.Y - first.Y));
     }
+
+    @Override
+    public String toString() {
+        return "[" + first.toString() + ", " + second.toString() + "]";
+    }
 }
