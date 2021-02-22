@@ -2,7 +2,7 @@ package sample.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 
-public class Rectangle extends Shape {
+public class Rectangle implements Shape {
 
     private Point first, second;
 

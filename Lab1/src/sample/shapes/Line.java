@@ -2,7 +2,7 @@ package sample.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 
-public class Line extends Shape {
+public class Line implements Shape {
 
     private Point first, second;
 

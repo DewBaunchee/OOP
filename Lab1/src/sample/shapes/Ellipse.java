@@ -2,7 +2,7 @@ package sample.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 
-public class Ellipse extends Shape {
+public class Ellipse implements Shape {
 
     private Point first, second;
 

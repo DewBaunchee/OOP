@@ -2,14 +2,14 @@ package sample.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 
-public abstract class Shape {
-    public abstract void draw(GraphicsContext gc);
+public interface Shape {
+    void draw(GraphicsContext gc);
 
-    public abstract void setFirst(Point inFirst);
+    void setFirst(Point inFirst);
 
-    public abstract void setSecond(Point inSecond);
+    void setSecond(Point inSecond);
 
-    public abstract Point getFirst();
+    Point getFirst();
 
-    public abstract Point getSecond();
+    Point getSecond();
 }

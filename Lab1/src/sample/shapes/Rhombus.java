@@ -2,7 +2,7 @@ package sample.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 
-public class Rhombus extends Shape {
+public class Rhombus implements Shape {
 
     private Point first, second;
 

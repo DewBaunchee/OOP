@@ -2,7 +2,7 @@ package sample.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 
-public class Circle extends Shape {
+public class Circle implements Shape {
 
     private Point first;
     private Point second;
