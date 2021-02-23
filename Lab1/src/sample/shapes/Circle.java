@@ -8,8 +8,16 @@ public class Circle implements Shape {
     private Point second;
 
     public Circle(Point inFirst, Point inSecond) {
-        first = inFirst;
-        second = inSecond;
+        if(inFirst == null) inFirst = new Point(0, 0);
+        if(inSecond == null) inSecond = new Point(0, 0);
+
+        double x1 = Math.min(inFirst.getX(), inSecond.getX());
+        double y1 = Math.min(inFirst.getY(), inSecond.getY());
+        double x2 = Math.max(inFirst.getX(), inSecond.getX());
+        double y2 = Math.max(inFirst.getY(), inSecond.getY());
+
+        first = new Point(x1, y1);
+        second = new Point(x2, y2);
     }
 
     @Override
@@ -38,10 +46,10 @@ public class Circle implements Shape {
 
     @Override
     public void draw(GraphicsContext gc) {
-        double diameter = Math.max(Math.abs(second.X - first.X),
-        Math.abs(second.Y - first.Y));
+        double diameter = Math.max(Math.abs(second.getX() - first.getX()),
+        Math.abs(second.getY() - first.getY()));
 
-        gc.strokeOval(first.X, first.X, diameter, diameter);
+        gc.strokeOval(first.getX(), first.getY(), diameter, diameter);
     }
 
     @Override

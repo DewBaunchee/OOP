@@ -7,8 +7,16 @@ public class Ellipse implements Shape {
     private Point first, second;
 
     public Ellipse(Point inFirst, Point inSecond) {
-        first = inFirst;
-        second = inSecond;
+        if(inFirst == null) inFirst = new Point(0, 0);
+        if(inSecond == null) inSecond = new Point(0, 0);
+
+        double x1 = Math.min(inFirst.getX(), inSecond.getX());
+        double y1 = Math.min(inFirst.getY(), inSecond.getY());
+        double x2 = Math.max(inFirst.getX(), inSecond.getX());
+        double y2 = Math.max(inFirst.getY(), inSecond.getY());
+
+        first = new Point(x1, y1);
+        second = new Point(x2, y2);
     }
 
     @Override
@@ -37,10 +45,10 @@ public class Ellipse implements Shape {
 
     @Override
     public void draw(GraphicsContext gc) {
-        double x1 = first.X;
-        double y1 = first.Y;
-        double x2 = second.X;
-        double y2 = second.Y;
+        double x1 = first.getX();
+        double y1 = first.getY();
+        double x2 = second.getX();
+        double y2 = second.getY();
 
         if(x1 > x2) {
             double temp = x1;

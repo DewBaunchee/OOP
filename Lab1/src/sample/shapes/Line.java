@@ -7,6 +7,9 @@ public class Line implements Shape {
     private Point first, second;
 
     public Line(Point inFirst, Point inSecond) {
+        if(inFirst == null) inFirst = new Point(0, 0);
+        if(inSecond == null) inSecond = new Point(0, 0);
+
         first = inFirst;
         second = inSecond;
     }
@@ -37,7 +40,7 @@ public class Line implements Shape {
 
     @Override
     public void draw(GraphicsContext gc) {
-        gc.strokeLine(first.X, first.Y, second.X, second.Y);
+        gc.strokeLine(first.getX(), first.getY(), second.getX(), second.getY());
     }
 
     @Override

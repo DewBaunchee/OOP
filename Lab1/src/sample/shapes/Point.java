@@ -1,7 +1,23 @@
 package sample.shapes;
 
 public class Point {
-    double X, Y;
+    public double getX() {
+        return X;
+    }
+
+    public void setX(double x) {
+        X = x;
+    }
+
+    public double getY() {
+        return Y;
+    }
+
+    public void setY(double y) {
+        Y = y;
+    }
+
+    private double X, Y;
 
     public Point(double inX, double inY) {
         X = inX;
@@ -10,6 +26,6 @@ public class Point {
 
     @Override
     public String toString() {
-        return "{ X: " + X + ", Y: " + Y + " }";
+        return "{ X: " + (int) X + ", Y: " + (int) Y + " }";
     }
 }
