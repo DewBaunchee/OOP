@@ -15,6 +15,7 @@ import javafx.scene.paint.Paint;
 import sample.Hierarchy.*;
 
 import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -48,6 +49,12 @@ public class Controller {
 
     @FXML
     private Label legionNameLabel;
+
+    @FXML
+    private Button serializeBtn;
+
+    @FXML
+    private Button deserializeBtn;
 
     @FXML
     void initialize() {
@@ -110,25 +117,52 @@ public class Controller {
             reload();
         });
 
-        armyComposition.setOnMouseClicked(mouseEvent -> {
-            if(mouseEvent.getButton() == MouseButton.SECONDARY) {
-                Node node = mouseEvent.getPickResult().getIntersectedNode();
-                if (node != armyComposition) {
-                    Node parent = node.getParent();
-                    while (parent != armyComposition) {
-                        node = parent;
-                        parent = node.getParent();
-                    }
-                }
+        serializeBtn.setOnAction(actionEvent -> {
+            try {
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("serialized.txt"));
+                legion.writeExternal(objectOutputStream);
+                objectOutputStream.flush();
+                objectOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
-                Integer col = GridPane.getColumnIndex(node);
-                Integer row = GridPane.getRowIndex(node);
-
-                if(col == null || row == null) return;
-                int index = row * 10 + col;
-
-                legion.removeUnit(index);
+        deserializeBtn.setOnAction(actionEvent -> {
+            try {
+                ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("serialized.txt"));
+                legion.readExternal(objectInputStream);
+                objectInputStream.close();
                 reload();
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+
+        armyComposition.setOnMouseClicked(mouseEvent -> {
+            Node node = mouseEvent.getPickResult().getIntersectedNode();
+            if (node != armyComposition) {
+                Node parent = node.getParent();
+                while (parent != armyComposition) {
+                    node = parent;
+                    parent = node.getParent();
+                }
+            }
+
+            Integer col = GridPane.getColumnIndex(node);
+            Integer row = GridPane.getRowIndex(node);
+            if(col == null || row == null) return;
+            int index = row * 10 + col;
+
+            if(mouseEvent.getButton() == MouseButton.SECONDARY) {
+                if(legion.removeUnit(index) == null) return;
+                reload();
+            }
+
+            if(mouseEvent.getButton() == MouseButton.PRIMARY) {
+                if(legion.addRankTo(index)) {
+                    reload();
+                }
             }
         });
     }

@@ -1,22 +1,31 @@
 package sample.Hierarchy;
 
-public interface Unit {
+import java.io.Externalizable;
 
-    String getName();
-    void setImagePath(String path);
-    String getImagePath();
+public abstract class Unit implements Externalizable {
+    protected String name;
+    protected String imagePath;
+    protected int rank;
+    protected int attack;
+    protected int defence;
+    protected int speed;
+    protected int count;
 
-    int getRank();
-    void setRank(int rank);
+    public abstract String getName();
+    public abstract void setImagePath(String path);
+    public abstract String getImagePath();
 
-    int getAttack();
-    int getDefence();
-    int getSpeed();
+    public abstract int getRank();
+    public abstract boolean addRank();
 
-    boolean addWarriors(int count);
-    void removeWarrior();
+    public abstract int getAttack();
+    public abstract int getDefence();
+    public abstract int getSpeed();
 
-    Unit copy();
+    public abstract boolean addWarriors(int count);
+    public abstract void removeWarrior();
 
-    int count();
+    public abstract Unit copy();
+
+    public abstract int count();
 }

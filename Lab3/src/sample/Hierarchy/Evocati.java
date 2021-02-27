@@ -1,23 +1,29 @@
 package sample.Hierarchy;
 
-public class Evocati implements Cavalry {
-    private final String name;
-    private String imagePath;
-    private int rank;
-    private int attack;
-    private int defence;
-    private int speed;
-    private boolean isMount;
-    private int count;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+
+public class Evocati extends Cavalry {
+    private static final int maxRank = 10;
+    private static final int maxAttack = 90;
+    private static final int maxDefence = 60;
+    private static final int maxSpeed = 100;
+    private static final int maxCount = 60;
+
+    private static final int minRank = 1;
+    private static final int minAttack = 40;
+    private static final int minDefence = 30;
+    private static final int minSpeed = 80;
 
     public Evocati(String inName) {
         name = inName;
-        rank = 1;
-        attack = 40;
-        defence = 30;
-        speed = 80;
+        rank = minRank;
+        attack = minAttack;
+        defence = minDefence;
+        speed = minSpeed;
         isMount = true;
-        count = 60;
+        count = maxCount;
     }
 
     @Override
@@ -41,8 +47,16 @@ public class Evocati implements Cavalry {
     }
 
     @Override
-    public void setRank(int inRank) {
-        rank = inRank;
+    public boolean addRank()
+    {
+        if(rank != maxRank) {
+            rank++;
+            attack = (int) ((maxAttack - minAttack) * ((double) (rank - 1) / (maxRank - minRank)) + minAttack);
+            defence = (int) ((maxDefence - minDefence) * ((double) (rank - 1) / (maxRank - minRank)) + minDefence);
+            speed = (int) ((maxSpeed - minSpeed) * ((double) (rank - 1) / (maxRank - minRank)) + minSpeed);
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -72,7 +86,7 @@ public class Evocati implements Cavalry {
 
     @Override
     public boolean addWarriors(int inCount) {
-        if (inCount < 1 || inCount + count > 60) return false;
+        if (inCount < 1 || inCount + count > maxCount) return false;
 
         count = count + inCount;
 
@@ -101,6 +115,28 @@ public class Evocati implements Cavalry {
         copied.count = count;
 
         return copied;
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(name);
+        out.writeObject(rank);
+        out.writeObject(attack);
+        out.writeObject(defence);
+        out.writeObject(speed);
+        out.writeObject(count);
+        out.writeObject(isMount);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        name = (String) in.readObject();
+        rank = (int) in.readObject();
+        attack = (int) in.readObject();
+        defence = (int) in.readObject();
+        speed = (int) in.readObject();
+        count = (int) in.readObject();
+        isMount = (boolean) in.readObject();
     }
 
     @Override

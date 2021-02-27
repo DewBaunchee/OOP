@@ -81,6 +81,22 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <Button fx:id="deserializeBtn" layoutX="16.0" layoutY="467.0" mnemonicParsing="false" prefWidth="167.0" text="Deserialize">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="serializeBtn" layoutX="16.0" layoutY="417.0" mnemonicParsing="false" prefWidth="167.0" text="Serialize">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </Pane>
          </center>

@@ -1,23 +1,28 @@
 package sample.Hierarchy;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 
-public class Hastati implements Unit {
-    private final String name;
-    private String imagePath;
-    private int rank;
-    private int attack;
-    private int defence;
-    private int speed;
-    private int count;
+public class Hastati extends Unit {
+    private static final int maxRank = 10;
+    private static final int maxAttack = 50;
+    private static final int maxDefence = 50;
+    private static final int maxSpeed = 40;
+    private static final int maxCount = 120;
+
+    private static final int minRank = 1;
+    private static final int minAttack = 20;
+    private static final int minDefence = 20;
+    private static final int minSpeed = 30;
 
     public Hastati(String inName) {
         name = inName;
-        rank = 1;
-        attack = 20;
-        defence = 20;
-        speed = 30;
-        count = 120;
+        rank = minRank;
+        attack = minAttack;
+        defence = minDefence;
+        speed = minSpeed;
+        count = maxCount;
     }
 
     @Override
@@ -41,8 +46,16 @@ public class Hastati implements Unit {
     }
 
     @Override
-    public void setRank(int inRank) {
-        rank = inRank;
+    public boolean addRank()
+    {
+        if(rank != maxRank) {
+            rank++;
+            attack = (int) ((maxAttack - minAttack) * ((double) (rank - 1) / (maxRank - minRank)) + minAttack);
+            defence = (int) ((maxDefence - minDefence) * ((double) (rank - 1) / (maxRank - minRank)) + minDefence);
+            speed = (int) ((maxSpeed - minSpeed) * ((double) (rank - 1) / (maxRank - minRank)) + minSpeed);
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -62,7 +75,7 @@ public class Hastati implements Unit {
 
     @Override
     public boolean addWarriors(int inCount) {
-        if(inCount < 1 || inCount + count > 120) return false;
+        if(inCount < 1 || inCount + count > maxCount) return false;
 
         count = count + inCount;
 
@@ -89,6 +102,26 @@ public class Hastati implements Unit {
     @Override
     public int count() {
         return count;
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(name);
+        out.writeObject(rank);
+        out.writeObject(attack);
+        out.writeObject(defence);
+        out.writeObject(speed);
+        out.writeObject(count);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        name = (String) in.readObject();
+        rank = (int) in.readObject();
+        attack = (int) in.readObject();
+        defence = (int) in.readObject();
+        speed = (int) in.readObject();
+        count = (int) in.readObject();
     }
 
     @Override
