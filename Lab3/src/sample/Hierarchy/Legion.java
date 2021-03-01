@@ -1,13 +1,21 @@
 package sample.Hierarchy;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.*;
 import java.util.ArrayList;
 
+@XmlRootElement
 public class Legion implements Externalizable, Serializable {
     public Warrior getGeneral() {
         return general;
     }
 
+    @XmlElement
     public void setGeneral(Warrior general) {
         this.general = general;
     }
@@ -16,6 +24,7 @@ public class Legion implements Externalizable, Serializable {
         return name;
     }
 
+    @XmlElement
     public boolean setName(String name) {
         if(name == null || name.length() == 0 || name.length() > 20) return false;
         this.name = name;
@@ -27,9 +36,25 @@ public class Legion implements Externalizable, Serializable {
     private int count;
     private Unit[] units;
 
-    private Legion() {
-
+    public int getCount() {
+        return count;
     }
+
+    @XmlElement
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public Unit[] getUnits() {
+        return units;
+    }
+
+    @XmlElement
+    public void setUnits(Unit[] units) {
+        this.units = units;
+    }
+
+    Legion() {}
 
     public Legion(String inName, Warrior inGeneral) {
         if(!setName(inName)) return;
@@ -100,6 +125,25 @@ public class Legion implements Externalizable, Serializable {
             unit.readExternal(in);
             units[i] = unit;
         }
+    }
+
+    public void xmlSerialize(File file) throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(this.getClass());
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        marshaller.marshal(this, file);
+        marshaller.marshal(this, System.out);
+    }
+
+    public void xmlDeserialize(File file) throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(this.getClass());
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        Legion legion = (Legion) unmarshaller.unmarshal(file);
+        this.name = legion.name;
+        this.general = legion.general;
+        this.count = legion.count;
+        this.units = legion.units;
+        System.out.println(toString());
     }
 
     private Unit chooseObject(ObjectInput in) throws IOException, ClassNotFoundException {

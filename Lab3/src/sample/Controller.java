@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -14,7 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Paint;
 import sample.Hierarchy.*;
 
-import java.awt.*;
+import javax.xml.bind.JAXBException;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -55,6 +54,12 @@ public class Controller {
 
     @FXML
     private Button deserializeBtn;
+
+    @FXML
+    private Button toXmlBtn;
+
+    @FXML
+    private Button fromXmlBtn;
 
     @FXML
     void initialize() {
@@ -163,6 +168,24 @@ public class Controller {
                 if(legion.addRankTo(index)) {
                     reload();
                 }
+            }
+        });
+
+        toXmlBtn.setOnAction(actionEvent -> {
+            try {
+                legion.xmlSerialize(new File("file.xml"));
+                reload();
+            } catch (JAXBException e) {
+                e.printStackTrace();
+            }
+        });
+
+        fromXmlBtn.setOnAction(actionEvent -> {
+            try {
+                legion.xmlDeserialize(new File("file.xml"));
+                reload();
+            } catch (JAXBException e) {
+                e.printStackTrace();
             }
         });
     }

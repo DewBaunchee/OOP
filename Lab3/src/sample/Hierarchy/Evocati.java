@@ -16,6 +16,8 @@ public class Evocati extends Cavalry {
     private static final int minDefence = 30;
     private static final int minSpeed = 80;
 
+    Evocati() {}
+
     public Evocati(String inName) {
         name = inName;
         rank = minRank;
@@ -75,11 +77,6 @@ public class Evocati extends Cavalry {
     }
 
     @Override
-    public boolean isMount() {
-        return isMount;
-    }
-
-    @Override
     public void switchMount() {
         isMount = !isMount;
     }
@@ -96,11 +93,6 @@ public class Evocati extends Cavalry {
     @Override
     public void removeWarrior() {
         count--;
-    }
-
-    @Override
-    public int count() {
-        return count;
     }
 
     @Override
@@ -148,6 +140,6 @@ public class Evocati extends Cavalry {
                 "Defence: " + defence + "\n" +
                 "Speed: " + speed + "\n" +
                 "Mounted: " + (isMount ? "Yes" : "No") + "\n" +
-                "Count: " + count();
+                "Count: " + count;
     }
 }

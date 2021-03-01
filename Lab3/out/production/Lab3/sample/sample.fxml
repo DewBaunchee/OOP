@@ -97,6 +97,22 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <Button fx:id="toXmlBtn" layoutX="16.0" layoutY="317.0" mnemonicParsing="false" prefWidth="167.0" text="To xml">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="fromXmlBtn" layoutX="16.0" layoutY="367.0" mnemonicParsing="false" prefWidth="167.0" text="From xml">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </Pane>
          </center>

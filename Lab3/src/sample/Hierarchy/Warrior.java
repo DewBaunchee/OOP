@@ -1,13 +1,19 @@
 package sample.Hierarchy;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.*;
 
+@XmlRootElement
 public class Warrior implements Externalizable {
+    @XmlElement
     private String name;
 
     public String getName() {
         return name;
     }
+
+    Warrior() {}
 
     public Warrior(String inName) {
         name = inName;

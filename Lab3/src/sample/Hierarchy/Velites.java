@@ -16,6 +16,8 @@ public class Velites extends Unit {
     private static final int minDefence = 10;
     private static final int minSpeed = 40;
 
+    Velites() {}
+
     public Velites(String inName) {
         name = inName;
         rank = minRank;
@@ -100,11 +102,6 @@ public class Velites extends Unit {
     }
 
     @Override
-    public int count() {
-        return count;
-    }
-
-    @Override
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeObject(name);
         out.writeObject(rank);
@@ -132,6 +129,6 @@ public class Velites extends Unit {
                 "Attack: " + attack + "\n" +
                 "Defence: " + defence + "\n" +
                 "Speed: " + speed + "\n" +
-                "Count: " + count();
+                "Count: " + count;
     }
 }
