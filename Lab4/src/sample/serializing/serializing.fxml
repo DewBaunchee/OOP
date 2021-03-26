@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="167.0" prefWidth="554.0" style="-fx-background-color: #BF0000; -fx-border-color: #000; -fx-border-width: 2px;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.serializing.SerializingController">
+   <children>
+      <AnchorPane prefHeight="26.0" prefWidth="534.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Pane prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: #8F0000; -fx-background-radius: 5px; -fx-border-color: #F0CE00; -fx-border-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fx:id="pluginsFolder" fitHeight="26.0" fitWidth="123.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/folder.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ChoiceBox fx:id="pluginChooser" layoutX="30.0" layoutY="2.0" prefHeight="23.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="534.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Pane layoutX="14.0" layoutY="10.0" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: #8F0000; -fx-background-radius: 5px; -fx-border-color: #F0CE00; -fx-border-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fx:id="saveFileBtn" fitHeight="26.0" fitWidth="123.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/folder.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Pane>
+            <TextField fx:id="saveFileField" layoutX="40.0" layoutY="1.0" prefHeight="26.0" prefWidth="420.0" promptText="Path to save file..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="84.0" AnchorPane.topAnchor="0.0" />
+            <Button fx:id="chooseBtn" layoutX="506.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #8F0000;" text="Choose" textFill="#ffd900" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="26.0" prefWidth="534.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="90.0">
+         <children>
+            <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TextField fx:id="keyField" prefHeight="26.0" prefWidth="445.0" promptText="Key" />
+                  <CheckBox fx:id="useCryptCheck" mnemonicParsing="false" selected="true" text="Use crypt" textFill="#ffd900">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <HBox layoutX="40.0" layoutY="120.0" prefHeight="30.0" prefWidth="554.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="130.0">
+         <children>
+            <Button fx:id="serializeBtn" disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: #8F0000;" text="Serialize" textFill="#ffd900">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <RadioButton mnemonicParsing="false" selected="true" text="XML" textFill="#ffd900" fx:id="xmlMethod">
+               <toggleGroup>
+                  <ToggleGroup fx:id="serializeMethod" />
+               </toggleGroup>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </RadioButton>
+            <RadioButton fx:id="textMethod" mnemonicParsing="false" text="Text" textFill="#ffd900" toggleGroup="$serializeMethod">
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </RadioButton>
+         </children>
+         <padding>
+            <Insets left="40.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>
