@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<legion>
+    <count>7</count>
+    <general>
+        <name>Sulla</name>
+    </general>
+    <name>Leg.I</name>
+    <units xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="evocati">
+        <attack>40</attack>
+        <count>60</count>
+        <defence>30</defence>
+        <name>Evocati I</name>
+        <rank>1</rank>
+        <speed>80</speed>
+        <isMount>true</isMount>
+    </units>
+    <units xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="hastati">
+        <attack>20</attack>
+        <count>120</count>
+        <defence>20</defence>
+        <name>Hastati I</name>
+        <rank>1</rank>
+        <speed>30</speed>
+    </units>
+    <units xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="evocati">
+        <attack>40</attack>
+        <count>60</count>
+        <defence>30</defence>
+        <name>Evocati II</name>
+        <rank>1</rank>
+        <speed>80</speed>
+        <isMount>true</isMount>
+    </units>
+    <units xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="princeps">
+        <attack>40</attack>
+        <count>120</count>
+        <defence>50</defence>
+        <name>Princeps I</name>
+        <rank>1</rank>
+        <speed>25</speed>
+    </units>
+    <units xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="triarii">
+        <attack>60</attack>
+        <count>60</count>
+        <defence>70</defence>
+        <name>Triarii I</name>
+        <rank>1</rank>
+        <speed>20</speed>
+    </units>
+    <units xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="velites">
+        <attack>30</attack>
+        <count>120</count>
+        <defence>10</defence>
+        <name>Velites I</name>
+        <rank>1</rank>
+        <speed>40</speed>
+    </units>
+    <units xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="velites">
+        <attack>30</attack>
+        <count>120</count>
+        <defence>10</defence>
+        <name>Velites II</name>
+        <rank>1</rank>
+        <speed>40</speed>
+    </units>
+</legion>

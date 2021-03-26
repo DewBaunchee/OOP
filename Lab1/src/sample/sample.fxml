@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <Pane prefHeight="34.0" prefWidth="884.0" style="-fx-border-color: #BBB; -fx-background-color: #EEE;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="7.0" layoutY="5.0" text="Choose shape: ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="lineBtn" layoutX="114.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Line" />
+            <Button fx:id="circleBtn" layoutX="194.0" layoutY="5.0" mnemonicParsing="false" prefWidth="80.0" text="Circle" />
+            <Button fx:id="rhombusBtn" layoutX="514.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Rhombus" />
+            <Button fx:id="rectangleBtn" layoutX="434.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Rectangle" />
+            <Button fx:id="squareBtn" layoutX="354.0" layoutY="5.0" mnemonicParsing="false" prefWidth="80.0" text="Square" />
+            <Button fx:id="ellipseBtn" layoutX="274.0" layoutY="5.0" mnemonicParsing="false" prefWidth="80.0" text="Ellipse" />
+            <Label layoutX="604.0" layoutY="5.0" text="First:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="736.0" layoutY="4.0" text="Second:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="firstCoordField" layoutX="639.0" layoutY="4.0" prefHeight="25.0" prefWidth="95.0" />
+            <TextField fx:id="secondCoordField" layoutX="794.0" layoutY="4.0" prefHeight="25.0" prefWidth="95.0" />
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <Canvas fx:id="canvas" height="716.0" width="1100.0" BorderPane.alignment="TOP_LEFT" />
+   </center>
+</BorderPane>

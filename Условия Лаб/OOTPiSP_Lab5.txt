@@ -1,0 +1,14 @@
+В предыдущей лабораторной применить шаблоны проектирования Adapter + 2 из следующего списка:
+1) Singleton
+2) Composite
+3) Command
+4) Decorator
+5) Pipe
+6) Proxy
+7) Facade
+
+Выбирается по формуле: 
+первый паттерн: num % Count;
+второй: Count - (num % 7);
+
+значение 0 == Count
