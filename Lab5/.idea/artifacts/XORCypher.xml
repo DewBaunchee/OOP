@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="XORCypher">
+    <output-path>$PROJECT_DIR$/out/artifacts/XORCypher</output-path>
+    <root id="archive" name="XORCypher.jar">
+      <element id="directory" name="sample">
+        <element id="directory" name="plugins">
+          <element id="file-copy" path="$PROJECT_DIR$/src/sample/plugins/XORCypher.class" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

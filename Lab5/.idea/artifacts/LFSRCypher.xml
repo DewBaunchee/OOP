@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="LFSRCypher">
+    <output-path>$PROJECT_DIR$/out/artifacts/LFSRCypher</output-path>
+    <root id="archive" name="LFSRCypher.jar">
+      <element id="directory" name="sample">
+        <element id="directory" name="plugins">
+          <element id="file-copy" path="$PROJECT_DIR$/src/sample/plugins/LFSRCypher.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/sample/plugins/LFSRCypher$LFSR.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/sample/plugins/LFSRCypher$LFSR$Bit.class" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

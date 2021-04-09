@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CaesarCypher">
+    <output-path>$PROJECT_DIR$/out/artifacts/CaesarCypher</output-path>
+    <root id="archive" name="CaesarCypher.jar">
+      <element id="directory" name="sample">
+        <element id="directory" name="plugins">
+          <element id="file-copy" path="$PROJECT_DIR$/src/sample/plugins/CaesarCypher.class" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
